@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Speech Test</h1>
+    <p id="status">Click to start</p>
+    <button onclick="start()">🎤 Start</button>
+    <p id="result"></p>
+
+    <script>
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-IN';
+      recognition.interimResults = true;
+
+      recognition.onstart = () => document.getElementById('status').innerText = 'Listening...';
+      recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          transcript += event.results[i][0].transcript;
+        }
+        document.getElementById('result').innerText = transcript;
+      };
+      recognition.onerror = (e) => console.error("Error:", e);
+
+      function start() {
+        recognition.start();
+      }
+    </script>
+  </body>
+</html>
