@@ -1,42 +1,141 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* General Layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container h1 {
+  font-size: 2.8rem;
+  color: #00ffd5;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 8px #000;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Control Panel */
+.controls {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.controls button {
+  margin: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffd5, #007777);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card {
-  padding: 2em;
+.controls button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 18px rgba(0, 255, 213, 0.4);
 }
 
-.read-the-docs {
-  color: #888;
+.controls p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #e6e6e6;
+  text-shadow: 1px 1px 5px #000;
+  font-style: italic;
 }
+
+.recent-phrases {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Speech Input */
+.speech-input {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  margin-top: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.speech-input p {
+  margin: 0.5rem 0;
+}
+
+.button-group {
+  margin-top: 1rem;
+}
+
+.button-group button {
+  margin: 0.3rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background 0.3s ease;
+}
+
+.button-group button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00aaff, #0052cc);
+}
+
+.transcript {
+  color: #d1d1d1;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  min-height: 100vh; /* Make it full height */
+}
+
+/* Avatar Viewer Container */
+canvas {
+  border: 4px solid #00ffd5;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+  width: 100%;
+  height: 400px !important; /* Adjust height */
+}
+
+/* Optional: Scale the 3D avatar model */
+canvas > * {
+  transform: scale(1.5); /* Scales the content inside Canvas */
+}
+
+/* You can fine-tune this depending on how your model looks */
+
+/* Rest remains unchanged */

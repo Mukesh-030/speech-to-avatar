@@ -25,12 +25,14 @@ export default function SpeechInput({ onTranscriptUpdate }) {
   }
 
   return (
-    <div style={{ padding: "1rem", textAlign: "center" }}>
+    <div className="speech-input">
       <p>🎤 Status: <strong>{listening ? "Listening..." : "Stopped"}</strong></p>
-      <button onClick={startListening}>Start Listening</button>
-      <button onClick={stopListening}>Stop Listening</button>
-      <button onClick={resetTranscript}>Clear Text</button>
-      <p><strong>Speech Text:</strong> {transcript}</p>
+      <div className="button-group">
+        <button onClick={startListening}>Start Listening</button>
+        <button onClick={stopListening}>Stop Listening</button>
+        <button onClick={resetTranscript}>Clear Text</button>
+      </div>
+      <p className="transcript"><strong>Speech Text:</strong> {transcript}</p>
     </div>
   );
 }

@@ -1,0 +1,83 @@
+AVATAR.GLB
+
+Object: Body
+  └─ Mesh001: Std_Skin_Head
+  └─ Mesh001_01: Std_Skin_Body
+  └─ Mesh001_2: Std_Skin_Arm
+  └─ Mesh001_3: Std_Skin_Leg
+  └─ Mesh001_4: Std_Nails
+  └─ Mesh001_5: Std_Eyelash
+
+Object: Eye
+  └─ Mesh002: Std_Eye_R
+  └─ Mesh002_1: Std_Cornea_R
+  └─ Mesh002_2: Std_Eye_L
+  └─ Mesh002_3: Std_Cornea_L
+
+Object: EyeOcclusion
+  └─ Mesh004: Std_Eye_Occlusion_R
+  └─ Mesh004_1: Std_Eye_Occlusion_L
+
+Object: Hair_Shape
+  └─ Mesh011: submesh_9_Transparency
+  └─ Mesh011_1: submesh_0_002_Transparency
+  └─ Mesh011_2: submesh_1_002_Transparency
+  └─ Mesh011_3: submesh_2_002_Transparency
+  └─ Mesh011_4: submesh_4_002_Transparency
+  └─ Mesh011_5 : submesh_5_002_Transparency
+  └─ Mesh011_6 : submesh_8_001_Transparency
+
+Object: pants
+  └─ pants : pants
+
+Object: sandals
+  └─ Mesh006 : top1
+  └─ Mesh006_1: buckle
+
+Object: Scalp_Male
+  └─ Scalp_Male : Scalp_Transparency
+
+Object: Space_bun_B
+  └─ Space_bun_B : Hair_Transparency
+
+Object: TearLine
+  └─Mesh003 : Std_Tearline_R
+  └─Mesh003_1 : Std_Tearline_L
+
+Object: Teeth
+  └─Mesh005 : Std_Upper_Teeth
+  └─Mesh005_1 : Std_Lower_Teeth
+
+Object: Tongue
+  └─Tongue : Std_Tongue
+
+Object: topcloth
+  └─topcloth : top_0
+
+
+ANIMATION
+Body → aaaaaa
+ 🎨 Eye → aaaaaa
+ 🎨 EyeOcclusion → aaaaaa
+ 🎨 Hair_Shape → aaaaaa
+ 🎨 pants → 333333
+ 🎨 sandals → aaaaaa
+ 🎨 Scalp_Male → 2f2f2f
+ 🎨 Space_bun_B → 2f2f2f
+ 🎨 TearLine → aaaaaa
+ 🎨 Teeth → aaaaaa
+ 🎨 Tongue → cc3344
+ 🎨 topcloth → 4a90e2
+ 🎨 Body → aaaaaa
+ 🎨 Eye → aaaaaa
+ 🎨 EyeOcclusion → aaaaaa
+ 🎨 Hair_Shape → aaaaaa
+ 🎨 pants → 333333
+ 🎨 sandals → aaaaaa
+ 🎨 Scalp_Male → 2f2f2f
+ 🎨 Space_bun_B → 2f2f2f
+ 🎨 TearLine → aaaaaa
+🎨 Teeth → aaaaaa
+ 🎨 Tongue → cc3344
+🎨 topcloth → 4a90e2
+

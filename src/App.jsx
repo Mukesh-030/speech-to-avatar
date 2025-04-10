@@ -1,58 +1,61 @@
+// App.jsx
 import React, { useState, useRef } from "react";
 import AvatarViewer from "./components/AvatarViewer";
 import SpeechInput from "./components/SpeechInput";
+import "./App.css";
 
 function App() {
-  const [animation, setAnimation] = useState("Idle");
+  const [animation, setAnimation] = useState("avatar"); // Default model (avatar.glb)
   const [message, setMessage] = useState("");
   const [recentPhrases, setRecentPhrases] = useState([]);
-  const lastProcessed = useRef(""); // Store last processed phrase
+  const lastProcessed = useRef("");
 
   const handleTranscriptUpdate = (text, clearTranscript) => {
     const newPhrase = text.toLowerCase().trim();
 
-    // Prevent repeated triggers for same phrase
-    if (newPhrase === lastProcessed.current || animation !== "Idle") return;
+    if (animation !== "avatar") return;
 
     if (newPhrase === "hello" || newPhrase === "hi") {
       lastProcessed.current = newPhrase;
       setRecentPhrases((prev) => [newPhrase, ...prev.slice(0, 4)]);
-      setAnimation("wave");
+      setAnimation("wave"); // Loads wave.glb
       setMessage("👋 Triggered: 'wave' animation will play!");
-      clearTranscript(); // Reset transcript after processing
+      clearTranscript();
     } else if (newPhrase === "thank you" || newPhrase === "thanks") {
       lastProcessed.current = newPhrase;
       setRecentPhrases((prev) => [newPhrase, ...prev.slice(0, 4)]);
-      setAnimation("thank");
+      setAnimation("thank"); // Loads thank.glb
       setMessage("🙏 Triggered: 'thank' animation will play!");
-      clearTranscript(); // Reset transcript after processing
+      clearTranscript();
     }
   };
 
   const handleAnimationComplete = () => {
-    setAnimation("Idle");
+    setAnimation("avatar"); // Return to default idle avatar
     setMessage("🔁 Returned to Idle. Listening again...");
+    lastProcessed.current = "";
   };
 
   const handleStopAnimation = () => {
-    setAnimation("Idle");
+    setAnimation("avatar");
     setMessage("🛑 Animation manually stopped.");
+    lastProcessed.current = "";
   };
 
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
+    <div className="app-container">
       <h1>🧠 AI Speech to Sign Avatar</h1>
       <AvatarViewer
         animationName={animation}
         onAnimationComplete={handleAnimationComplete}
       />
       <SpeechInput onTranscriptUpdate={handleTranscriptUpdate} />
-      <div style={{ marginTop: "1rem" }}>
+      <div className="controls">
         <button onClick={() => setAnimation("wave")}>▶️ Play Wave</button>
         <button onClick={() => setAnimation("thank")}>🙏 Play Thank</button>
         <button onClick={handleStopAnimation}>⛔ Stop Animation</button>
         <p>{message}</p>
-        <p style={{ fontSize: "0.9rem", color: "#ccc" }}>
+        <p className="recent-phrases">
           🕘 Recent Phrases: {recentPhrases.join(", ") || "None"}
         </p>
       </div>
