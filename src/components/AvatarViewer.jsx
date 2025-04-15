@@ -11,18 +11,18 @@ function AvatarModel({ animationName, onAnimationComplete }) {
   // 🎨 Assign custom material colors based on mesh names
   useEffect(() => {
     const materialColors = {
-      Body: 0xffdbac,         // Light skin tone
-      Eye: 0x5c5c5c,          // Dark gray
-      EyeOcclusion: 0x3d3d3d, // Slightly darker
-      Hair_Shape: 0x3b2f2f,   // Dark brown
-      pants: 0x333333,        // Blackish
-      sandals: 0x6f4e37,      // Brown
-      Scalp_Male: 0x2f2f2f,   // Darker hair base
-      Space_bun_B: 0x2f2f2f,  // Same as scalp
-      TearLine: 0xd9ecff,     // Light bluish white
-      Teeth: 0xffffff,        // Pure white
-      Tongue: 0xcc3344,       // Reddish pink
-      topcloth: 0x4a90e2      // Blue shirt
+      Body: 0xffdbac,
+      Eye: 0x5c5c5c,
+      EyeOcclusion: 0x3d3d3d,
+      Hair_Shape: 0x3b2f2f,
+      pants: 0x333333,
+      sandals: 0x6f4e37,
+      Scalp_Male: 0x2f2f2f,
+      Space_bun_B: 0x2f2f2f,
+      TearLine: 0xd9ecff,
+      Teeth: 0xffffff,
+      Tongue: 0xcc3344,
+      topcloth: 0x4a90e2
     };
 
     scene.traverse((child) => {
@@ -36,6 +36,9 @@ function AvatarModel({ animationName, onAnimationComplete }) {
         }
       }
     });
+
+    // Center the model (move it up)
+    scene.position.set(0, -1, 0);
   }, [scene]);
 
   // 🕺 Play animation
@@ -58,15 +61,25 @@ function AvatarModel({ animationName, onAnimationComplete }) {
     };
   }, [actions, names, mixer, onAnimationComplete]);
 
-  return <primitive ref={group} object={scene} scale={2} />;
+  return (
+    <primitive
+      ref={group}
+      object={scene}
+      scale={2}
+      position={[0, 0, 0]} // No need to adjust here since we're setting scene.position
+    />
+  );
 }
 
 export default function AvatarViewer({ animationName, onAnimationComplete }) {
   return (
-    <Canvas camera={{ position: [0, 1.5, 4], fov: 50 }} shadows>
-      <ambientLight intensity={0.7} />
+    <Canvas camera={{ position: [0, 2, 3], fov: 60 }} shadows>
+      <ambientLight intensity={0.6} />
       <directionalLight position={[0, 2, 5]} intensity={1} castShadow />
-      <OrbitControls />
+      <OrbitControls
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 3}
+      />
       <Suspense fallback={null}>
         <AvatarModel
           animationName={animationName}
